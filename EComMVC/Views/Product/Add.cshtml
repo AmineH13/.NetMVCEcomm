@@ -1,0 +1,29 @@
+﻿
+@model EComMVC.Models.AddProductViewModel
+
+@{
+}
+
+<h1 class="Display-4">Ajouter un produit</h1>
+
+<form action="addProduct" method="post" enctype="multipart/form-data">
+    <div class="mb-3">
+        <label for="">Nom :</label>
+        <input type="text" class="form-control" asp-for="Name" required>
+    </div>
+    <div class="mb-3">
+        <label for="">Description :</label>
+        <input type="text" class="form-control" asp-for="Description" required>
+    </div>
+    <div class="mb-3">
+        <label for="">Prix :</label>
+        <input type="number" class="form-control" asp-for="Price" required>
+    </div>
+
+    <div class="mb-3">
+        <label for="ImageFile">Image</label>
+        <input type="file" class="form-control" asp-for="ImageFile">
+    </div>
+
+    <button type="submit" class="btn btn-primary">Ajouter</button>
+</form>

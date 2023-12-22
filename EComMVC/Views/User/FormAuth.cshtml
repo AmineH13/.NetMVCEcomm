@@ -1,0 +1,22 @@
+﻿@model EComMVC.Models.UserAuthViewModel
+
+@{
+}
+
+
+
+<h1 class="Display-4">S'authentifier</h1>
+
+<form action="Authenticate" method="get" >
+    <div class="mb-3">
+        <label for="">Email :</label>
+        <input type="text" class="form-control" asp-for="Email" required>
+    </div>
+    <div class="mb-3">
+        <label for="">Password :</label>
+        <input type="password" class="form-control" asp-for="Password" required>
+    </div>
+
+
+    <button type="submit" class="btn btn-primary">Acceder</button>
+</form>

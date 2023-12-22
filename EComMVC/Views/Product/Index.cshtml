@@ -1,0 +1,56 @@
+﻿@model EComMVC.Models.ProductPanierModel
+
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-12 d-flex align-items-center">
+            <h1 class="Display-4" style="margin-right: 900px;">Liste des produits</h1>
+            <a href="@Url.Action("Index", "Panier", new { iduser = Model.IdUser }  )">
+                <i class="fa fa-shopping-cart"></i>
+                <span class="badge badge-pill badge-primary" style="color: red;">@Model.NumberProductInPanier </span>
+            </a>
+        </div>
+    </div>
+</div>
+
+
+
+<br />
+<form method="get" class="form-inline">
+    <div class="form-group">
+        <label for="filter-name" class="sr-only">Chercher un téléphone:</label>
+        <div class="input-group">
+            <input class="form-control" type="text" id="filter-name" name="filterName" placeholder="Chercher un téléphone">
+            <div class="input-group-append">
+                <button class="btn btn-secondary" type="submit">
+                    <i class="fa fa-search"></i> Filtrer
+                </button>
+            </div>
+        </div>
+    </div>
+</form>
+<br /><br />
+
+<div class="row">
+
+    @foreach (var produit in Model.Produits)
+    {
+        <div class="col-md-4">
+            <div class="card mb-4">
+                <img src="@produit.Image" class="card-img-top" alt="Image du produit">
+                <div class="card-body">
+                    <h5 class="card-title">@produit.Name</h5>
+                    <p class="card-text">@produit.Description</p>
+                    <p class="card-text"><strong>Prix : @produit.Price</strong></p>
+                    <form method="post" action="@Url.Action("AjouterAuPanier", "Panier")">
+                        <input type="hidden" name="idProduit" value="@produit.Id" />
+                        <input type="hidden" name="iduser" value="@Model.IdUser" />
+                        <button type="submit" class="btn btn-primary">Ajouter au panier</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    }
+
+</div>

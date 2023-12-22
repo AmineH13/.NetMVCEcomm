@@ -1,0 +1,39 @@
+﻿@model List<EComMVC.Models.BO.Produit>
+
+@{
+}
+
+
+<h1 class="Display-4" >Mon panier</h1>
+
+
+<div class="row">
+
+
+    @if (Model != null && Model.Count > 0)
+    {
+        <div class="row">
+
+            @foreach (var produit in Model)
+            {
+                <div class="col-md-4">
+                    <div class="card mb-4">
+                        <img src="@produit.Image" class="card-img-top" alt="Image du produit">
+                        <div class="card-body">
+                            <h5 class="card-title">@produit.Name</h5>
+                            <p class="card-text">@produit.Description</p>
+                            <p class="card-text"><strong>Prix : @produit.Price</strong></p>
+                            <button type="submit" class="btn btn-primary">Je passe au payement</button>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    }
+    else
+    {
+        <p>Votre panier est vide.</p>
+    }
+
+
+</div>
